@@ -1,0 +1,15 @@
+Почему нам нужен Origin?
+
+Accept: */*
+Accept-Charset: utf-8
+Accept-Encoding: gzip,deflate,sdch
+Connection: keep-alive
+Host: google.com
+Origin: http://javascript.info
+Referer: http://javascript.info/some/url
+
+
+Вопросы:
+
+Почему нужен Origin, если Referer содержит даже больше информации? Ответ: Referer иногда отсутствует, поэтому нужен Origin
+Возможно ли отсутствие Referer или Origin, или это неправильно? Ответ: Согласно спецификации, Referer является необязательным HTTP-заголовком. А вот Origin обязательно должен присутствовать

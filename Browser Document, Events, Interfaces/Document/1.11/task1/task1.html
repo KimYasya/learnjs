@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="./task1.css">
+  <script>
+    document.onclick = function(e) { // показывает координаты точки клика
+      coords.innerHTML = e.clientX + ':' + e.clientY;
+    };
+  </script>
+</head>
+
+<body>
+
+  Кликните в любом месте для получения координат в контексте окна.
+  <br> Это для тестирования, чтобы проверить результат, который вы получили с помощью JavaScript.
+  <br>
+  <div id="coords">(координаты покажутся здесь)</div>
+
+
+
+  <div id="field">
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+
+
+  <div class="triangle-right" style="left:-20px;top:-176px">1</div>
+  <div class="triangle-right" style="left:-10px;top:-178px">3</div>
+  <div class="triangle-right" style="left:190px;top:-40px">4</div>
+  <div class="triangle-right" style="left:200px;top:-42px">2</div>
+
+
+  <script>
+    let elem = document.getElementById("field");
+    let coordsElem = elem.getBoundingClientRect();
+
+    let corner1 = [coordsElem.left, coordsElem.top];
+    let corner2 = [coordsElem.right, coordsElem.bottom];
+    let corner3 = [coordsElem.left + field.clientLeft, coordsElem.top + field.clientTop];
+    let corner4 = [
+      coordsElem.left + elem.clientLeft + elem.clientWidth,
+      coordsElem.top + elem.clientTop + elem.clientHeight
+    ];
+
+    console.log("верхний левый внешний угол: " + corner1);
+    console.log("нижний правый, внешний угол: " + corner2);
+    console.log("верхний левый, внутренний угол: " + corner3);
+    console.log("нижний правый, внутренний угол: " + corner4);
+
+  </script>
+
+</body>
+
+</html>

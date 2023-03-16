@@ -1,0 +1,21 @@
+.tdEdit,
+.editArea {
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+  resize: none;
+  outline: none;
+  overflow-x: none;
+  overflow-y: none;
+  
+}
+
+.editBtns {
+  position: absolute;
+  top: 95px;
+}
+
+.tdEdit {
+  position: relative;
+}

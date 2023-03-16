@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <style>
+    .hidden,
+    .opened {
+      color: green;
+    }
+
+    ul,
+    .opened {
+      display: none;
+    }
+
+   .open {
+    display: inline-block;
+   }
+   
+  </style>
+</head>
+
+<body>
+
+  <div><span type="button" class="hidden" id="hidden">▶</span><span class="opened" type="button" id="opened">▼</span> Сладости (нажми меня)!</div>
+  <ul id="list">
+    <li>Пирожное</li>
+    <li>Пончик</li>
+    <li>Мёд</li>
+  </ul>
+
+  <script>
+
+    let list = document.getElementById("list");
+    let arrowClose = document.getElementById("opened");
+    let arrowOpen = document.getElementById("hidden");
+
+    function openList() {
+      list.classList.toggle("open");
+      arrowClose.classList.toggle("open");
+      arrowOpen.classList.toggle("opened");
+    }
+  
+    document.getElementById("hidden").addEventListener("click", openList);
+    document.getElementById("opened").addEventListener("click", openList);
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+В чём отличие CSS-свойств width и clientWidth
+
+В чём отличие между getComputedStyle(elem).width и elem.clientWidth?
+
+1. getComputedStyle может вернуть "auto" для строчного элемента, а нам нужны размеры в пикселях
+2. clientWidth возвращает число, а getComputedStyle(elem).width – строку.
+3. clientWidth - внутренняя область elem, включая внутренние отступы padding, а getComputedStyle - внутренняя обл, без padding.
+4. Полоса прокрутки. она отъедает место, при этом clientWidth это учитывает, а getComputedStyle - нет.

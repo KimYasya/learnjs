@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    .watch {
+      margin: 50px 100px;
+    }
+
+    .hour {
+      color: red;
+      font-size: 20px;
+      margin-right: 10px;
+    }
+
+    .min {
+      color: green;
+      font-size: 20px;
+      margin: 0px 10px 0px 10px;
+      
+    }
+
+    .sec {
+      color: blue;
+      font-size: 20px;  
+      margin: 0px 0px 0px 10px;
+    }
+
+    .start__btn {
+      margin: 20px 20px 0px 100px;
+      background-color: green;
+      color: greenyellow;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .stop__btn {
+      background-color: brown;
+      color: burlywood;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="clock" class="watch">
+    <span class="hour">hh</span>:<span class="min">mm</span>:<span class="sec">ss</span>
+  </div>
+
+  <input type="button" onclick="clockStart()" value="Start" class="start__btn">
+
+  <input type="button" onclick="clockStop()" value="Stop" class="stop__btn">
+
+  <script>
+    let timerId;
+
+    function update() {
+      let clock = document.getElementById("clock");
+      let date = new Date();
+
+      let hours = date.getHours();
+      if (hours < 10) hours = "0" + hours;
+      clock.children[0].innerHTML = hours;
+
+      let minutes = date.getMinutes();
+      if (minutes < 10) minutes = "0" + minutes;
+      clock.children[1].innerHTML = minutes;
+
+      let seconds = date.getSeconds();
+      if (seconds < 10) seconds = "0" + seconds;
+      clock.children[2].innerHTML = seconds;
+    }
+
+    function clockStart() {
+      
+      if (!timerId) {
+        timerId = setInterval(update, 1000);
+      }
+      update(); 
+    }
+
+    function clockStop() {
+      clearInterval(timerId);
+      timerId = null; 
+    }
+
+  </script>
+
+</body>
+</html>
